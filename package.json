@@ -1,6 +1,6 @@
 {
     "name": "salit",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "devanagari transliteration for slp1 and Harvard-Kyoto",
     "main": "salit.js",
     "scripts": {
