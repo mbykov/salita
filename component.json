@@ -1,0 +1,16 @@
+{
+  "name": "salit",
+  "repo": "mbykov/salit",
+    "description": "devanagari transliteration for slp1 and Harvard-Kyoto",
+  "version": "0.0.1",
+  "keywords": [],
+    "dependencies": {
+        "component/each": "*"
+    },
+  "license": "GPL",
+  "main": "salit.js",
+  "scripts": [
+    "salit.js"
+  ],
+  "remotes": []
+}

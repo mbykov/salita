@@ -1,0 +1,33 @@
+{
+    "name": "salit",
+    "version": "1.0.0",
+    "description": "devanagari transliteration for slp1 and Harvard-Kyoto",
+    "main": "salit.js",
+    "scripts": {
+        "test": "grunt test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/mbykov/salit.git"
+    },
+    "keywords": [
+        "sanskrit",
+        "devanagari",
+        "node.js",
+        "component.js",
+        "transliteration",
+        "slp1"
+    ],
+    "author": "Michael Bykov",
+    "license": "GNU GPL",
+    "bugs": {
+        "url": "https://github.com/mbykov/salit/issues"
+    },
+    "dependencies": {
+        "each-component": "*"
+    },
+    "devDependencies": {
+        "mocha": "*",
+        "should": "*"
+    }
+}
