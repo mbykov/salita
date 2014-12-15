@@ -2,9 +2,9 @@
 
 var each;
 try {
-    each = require('each-component');
+    var each = require('each-component');
 } catch (err) {
-    each = require('each');
+    var each = require('each');
 }
 
 module.exports = salit();
