@@ -1,7 +1,7 @@
 {
     "name": "salita",
     "version": "1.0.1",
-    "description": "devanagari transliteration for slp1 and Harvard-Kyoto",
+    "description": "devanagari transliteration for slp1",
     "main": "salita.js",
     "scripts": {
         "test": "grunt test"

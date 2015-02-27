@@ -1,7 +1,7 @@
 {
   "name": "salita",
     "repo": "mbykov/salita",
-    "description": "devanagari transliteration for slp1 and Harvard-Kyoto",
+    "description": "devanagari transliteration for slp1",
     "version": "1.0.1",
     "keywords": [
         "sanskrit",
