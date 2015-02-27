@@ -1,14 +1,14 @@
 {
-    "name": "salit",
+    "name": "salita",
     "version": "1.0.1",
     "description": "devanagari transliteration for slp1 and Harvard-Kyoto",
-    "main": "salit.js",
+    "main": "salita.js",
     "scripts": {
         "test": "grunt test"
     },
     "repository": {
         "type": "git",
-        "url": "http://github.com/mbykov/salit.git"
+        "url": "http://github.com/mbykov/salita.git"
     },
     "keywords": [
         "sanskrit",

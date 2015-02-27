@@ -32,8 +32,6 @@ salit.prototype.slp2sa = function(str) {
         if (idx == (arr.length-1) && letr in consonants) sk[idx] = consonants[letr] + '्';
         if (arr[idx] in signs) { sk[idx] = signs[letr] }
     });
-    // log('SK', sk.join(''), sk);
-    // log('ARR', arr.join(''), arr);
     return sk.join('');
 }
 
@@ -60,8 +58,6 @@ salit.prototype.sa2slp = function(str) {
         if (idx == (arr.length-1) && letr in consonants_) slp[idx] = consonants_[letr] + 'a';
         if (arr[idx] in signs_) { slp[idx] = signs_[letr] }
     });
-    //log('ARR', arr.join(''), arr);
-    //log('SLP', slp.join(''), slp);
     return slp.join('');
 }
 

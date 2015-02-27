@@ -1,16 +1,23 @@
 {
-  "name": "salit",
-  "repo": "mbykov/salit",
+  "name": "salita",
+    "repo": "mbykov/salita",
     "description": "devanagari transliteration for slp1 and Harvard-Kyoto",
-  "version": "1.0.1",
-  "keywords": [],
+    "version": "1.0.1",
+    "keywords": [
+        "sanskrit",
+        "devanagari",
+        "node.js",
+        "component.js",
+        "transliteration",
+        "slp1"
+    ],
     "dependencies": {
         "component/each": "*"
     },
-  "license": "GPL",
-  "main": "salit.js",
-  "scripts": [
-    "salit.js"
-  ],
-  "remotes": []
+    "license": "GPL",
+    "main": "salita.js",
+    "scripts": [
+        "salita.js"
+    ],
+    "remotes": []
 }

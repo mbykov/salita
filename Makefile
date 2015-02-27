@@ -1,9 +1,9 @@
 TESTS = test/node/*.js
 #REPORTER = dot
 REPORTER = spec
-g = salit
+g = salita
 
-build: components salit.js #test
+build: components salita.js #test
 	@component build --dev
 
 components: component.json
@@ -19,7 +19,7 @@ test:
 		$(TESTS) \
 #		2> /dev/null
 
-min: components salit.js #test
+min: components salita.js #test
 	@component build --use component-minify
 
 clean:
