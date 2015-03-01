@@ -21,6 +21,13 @@ Or as standalone version:
 
 ## API
 
+````javascript
+var salita = require('salita');
+salita.slp2sa('satyAnfta').should.equal('सत्यानृत');
+salita.sa2slp('सत्यानृत').should.equal('satyAnfta');
+````
+
+
 View more examples in [test suite](https://github.com/mbykov/salita/tree/master/test/node)
 
 ## Running node tests
