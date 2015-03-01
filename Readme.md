@@ -5,7 +5,7 @@
 With node.js:
 
 ````bash
-$ npm install salita
+$ npm install salita-component
 ````
 or with [component](http://github.com/component/component)
 

@@ -1,8 +1,8 @@
 {
-  "name": "salita",
+  "name": "salita-component",
     "repo": "mbykov/salita",
     "description": "devanagari transliteration for slp1",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "keywords": [
         "sanskrit",
         "devanagari",
