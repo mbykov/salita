@@ -7,13 +7,13 @@ try {
     var each = require('each');
 }
 
-module.exports = salit();
+module.exports = salita();
 
-function salit() {
-    if (!(this instanceof salit)) return new salit();
+function salita() {
+    if (!(this instanceof salita)) return new salita();
 }
 
-salit.prototype.slp2sa = function(str) {
+salita.prototype.slp2sa = function(str) {
     str = str.replace('/', ''); // FIXME: - временно
     str = str.replace('-', ''); // FIXME: - ic-Cati
     var arr = str.split('');
@@ -35,7 +35,7 @@ salit.prototype.slp2sa = function(str) {
     return sk.join('');
 }
 
-salit.prototype.sa2slp = function(str) {
+salita.prototype.sa2slp = function(str) {
     var consonants_ = invert(consonants);
     var  vowels_ = invert(vowels);
     var  Vowels_ = invert(Vowels);
@@ -216,7 +216,7 @@ var consonantsHK = {
     "": "",
 };
 
-salit.prototype.hk2sa = function(str) {
+salita.prototype.hk2sa = function(str) {
     str = clean(str);
     var sa;
 
