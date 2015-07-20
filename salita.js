@@ -70,6 +70,7 @@ salita.prototype.sa2iast = function(str) {
     var cons = invert(c.consIAST);
     var  ligas = invert(c.ligaIAST);
     var  vowels = invert(c.vowelIAST);
+    var  signs = invert(c.signsIAST);
     // var  signs = invert(signs);
     var arr = str.split('');
     var iast = [];
@@ -87,6 +88,11 @@ salita.prototype.sa2iast = function(str) {
             } else if (!next) {
                 iast.push('a');
             }
+        } else if (sym in signs) {
+            iast.push('a');
+            iast.push(signs[sym]);
+        } else if (sym in vowels) {
+            iast.push(vowels[sym]);
         }
     });
     log('IAST', iast);

@@ -68,51 +68,52 @@ describe('salita devanagari converter', function() {
         });
 
         it('convert satya', function() {
-            salita.slp2sa('satya').should.equal('सत्य');
-            salita.sa2slp('सत्य').should.equal('satya');
+            // salita.slp2sa('satya').should.equal('सत्य');
+            salita.sa2iast('सत्य').should.equal('satya');
         });
         it('convert anfta', function() {
-            salita.slp2sa('anfta').should.equal('अनृत');
-            salita.sa2slp('अनृत').should.equal('anfta');
+            // salita.slp2sa('anfta').should.equal('अनृत');
+            salita.sa2iast('अनृत').should.equal('anṛta');
         });
         it('convert rAma', function() { // राम (rāma) + ऋद्धि (ṛddhi)
-            salita.slp2sa('rAma').should.equal('राम');
+            // salita.slp2sa('rAma').should.equal('राम');
+            salita.sa2iast('राम').should.equal('rāma');
         });
         it('convert fdDi', function() {
-            salita.slp2sa('fdDi').should.equal('ऋद्धि');
-            salita.sa2slp('ऋद्धि').should.equal('fdDi');
+            // salita.slp2sa('fdDi').should.equal('ऋद्धि');
+            salita.sa2iast('ऋद्धि').should.equal('ṛddhi');
         });
         it('convert Uru', function() { // ऊरु Uru
-            salita.slp2sa('Uru').should.equal('ऊरु'); //
-            salita.sa2slp('ऊरु').should.equal('Uru');
+            // salita.slp2sa('Uru').should.equal('ऊरु'); //
+            salita.sa2iast('ऊरु').should.equal('ūru');
         });
         it('convert kena', function() {
-            salita.slp2sa('kena').should.equal('केन');
-            salita.sa2slp('केन').should.equal('kena');
+            // salita.slp2sa('kena').should.equal('केन');
+            salita.sa2iast('केन').should.equal('kena');
         });
         it('convert upanizat', function() {
-            salita.slp2sa('upanizat').should.equal('उपनिषत्');
-            salita.sa2slp('उपनिषत्').should.equal('upanizat');
+            // salita.slp2sa('upanizat').should.equal('उपनिषत्');
+            salita.sa2iast('उपनिषत्').should.equal('upaniṣat');
         });
         it('convert kxpta', function() {
-            salita.slp2sa('kxpta').should.equal('कॢप्त');
-            salita.sa2slp('कॢप्त').should.equal('kxpta');
+            // salita.slp2sa('kxpta').should.equal('कॢप्त');
+            salita.sa2iast('कॢप्त').should.equal('kḷpta');
         });
         it('convert sraMsin', function() {
-            salita.slp2sa('sraMsin').should.equal('स्रंसिन्');
-            salita.sa2slp('स्रंसिन्').should.equal('sraMsin');
+            // salita.slp2sa('sraMsin').should.equal('स्रंसिन्');
+            salita.sa2iast('स्रंसिन्').should.equal('sraṃsin');
         });
         it('convert saMkA', function() {
-            salita.slp2sa('saMkA').should.equal('संका');
-            salita.sa2slp('संका').should.equal('saMkA');
+            // salita.slp2sa('saMkA').should.equal('संका');
+            salita.sa2iast('संका').should.equal('saMkA');
         });
         it('convert apasalEH', function() {
-            salita.slp2sa('apasalEH').should.equal('अपसलैः');
-            salita.sa2slp('अपसलैः').should.equal('apasalEH');
+            // salita.slp2sa('apasalEH').should.equal('अपसलैः');
+            salita.sa2iast('अपसलैः').should.equal('apasalEH');
         });
         // it('convert ', function() {
         //     salita.slp2sa('').should.equal('');
-        //     salita.sa2slp('').should.equal('');
+        //     salita.sa2iast('').should.equal('');
         // });
     });
 
