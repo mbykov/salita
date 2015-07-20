@@ -64,17 +64,14 @@ salita.prototype.sa2slp = function(str) {
 }
 
 salita.prototype.sa2iast = function(str) {
-    // неоднозначные - с придыханием, сначала их, потом все подряд
-    // если гласная-лига, то - если a - одно, иначе - другое
     str = clean(str);
     var cons = invert(c.consIAST);
     var  ligas = invert(c.ligaIAST);
     var  vowels = invert(c.vowelIAST);
     var  signs = invert(c.signsIAST);
-    // var  signs = invert(signs);
     var arr = str.split('');
     var iast = [];
-    log('==>', arr)
+    // log('==>', arr)
     arr.forEach(function(sym, idx) {
         var prev = arr[idx-1];
         var next = arr[idx+1];
@@ -89,16 +86,97 @@ salita.prototype.sa2iast = function(str) {
                 iast.push('a');
             }
         } else if (sym in signs) {
-            iast.push('a');
+            if (prev in cons) iast.push('a');
             iast.push(signs[sym]);
         } else if (sym in vowels) {
             iast.push(vowels[sym]);
         }
     });
-    log('IAST', iast);
-    // return 'satyānṛta';
-    // return 'padaccheda';
+    // log('IAST', iast, iast.join(''));
     return iast.join('');
+}
+
+salita.prototype.iast2sa = function(str) {
+    str = clean(str);
+    var cons = c.consIAST;
+    var  ligas = c.ligaIAST;
+    var  vowels = c.vowelIAST;
+    var  signs = c.signsIAST;
+    var arr = str.split('');
+    var mixed = [];
+    var sa = [];
+    // log('==>', arr)
+    arr.forEach(function(sym, idx) {
+        var prev = arr[idx-1];
+        if (sym == 'h' && c.aspIAST.indexOf(prev) > -1) {
+            mixed.pop();
+            var asp = [prev, 'h'].join('');
+            mixed.push(c.virama);
+            mixed.push(cons[asp]);
+        } else if (isIN(['i', 'u'], sym) && prev == 'a') {
+            mixed.pop();
+            var diph = ['a', sym].join('');
+            var vow = (idx == 0) ? vowels[diph] : ligas[diph];
+            mixed.push(vow);
+        } else {
+            mixed.push(sym);
+        }
+    });
+    // log('==>', mixed);
+
+    mixed.forEach(function(sym, idx) {
+        var prev = mixed[idx-1];
+        var next = mixed[idx+1];
+        if (sym in cons) {
+            sa.push(cons[sym]);
+            if ((next in cons) || !next) {
+                // log('VIR', sym, next);
+                sa.push(c.virama);
+            }
+        } else if (idx != 0 && sym in ligas) {
+            sa.push(ligas[sym]);
+        } else if (idx == 0 && sym in vowels) {
+            sa.push(vowels[sym]);
+        } else if (sym in signs) {
+            sa.push(signs[sym]);
+        } else {
+            // log('SYM', sym);
+            sa.push(sym);
+        }
+    });
+    // log('SA', sa, sa.join(''));
+    return sa.join('');
+
+    sa = [];
+    arr.forEach(function(sym, idx) {
+        var prev = arr[idx-1];
+        var next = arr[idx+1];
+        // log('SYM', prev, sym, next, (sym in vowels));
+        if (idx == 0 && (sym in vowels)) {
+            sa.push(vowels[sym]);
+            return;
+        }
+        if (sym in cons) {
+            if (sym == 'h' && c.aspIAST.indexOf(prev) > -1) {
+                sa.pop(); // virama
+                sa.pop();
+                var asp = [prev, 'h'].join('');
+                sa.push(cons[asp]);
+                return;
+            }
+            sa.push(cons[sym]);
+            if ((next in cons) || !next) {
+                sa.push(c.virama);
+            }
+        } else if (sym in ligas) {
+            sa.push(ligas[sym]);
+        } else if (sym in signs) {
+            sa.push(signs[sym]);
+        }
+    });
+    log('SA', sa, sa.join(''));
+    // return 'सत्यानृत';
+    return sa.join('');
 }
 
 
@@ -261,3 +339,7 @@ function invert(obj) {
 };
 
 function log() { console.log.apply(console, arguments) }
+
+function isIN(arr, item) {
+    return (arr.indexOf(item) > -1) ? true : false;
+}
