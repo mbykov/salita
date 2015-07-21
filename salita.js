@@ -146,37 +146,6 @@ salita.prototype.iast2sa = function(str) {
     });
     // log('SA', sa, sa.join(''));
     return sa.join('');
-
-    sa = [];
-    arr.forEach(function(sym, idx) {
-        var prev = arr[idx-1];
-        var next = arr[idx+1];
-        // log('SYM', prev, sym, next, (sym in vowels));
-        if (idx == 0 && (sym in vowels)) {
-            sa.push(vowels[sym]);
-            return;
-        }
-        if (sym in cons) {
-            if (sym == 'h' && c.aspIAST.indexOf(prev) > -1) {
-                sa.pop(); // virama
-                sa.pop();
-                var asp = [prev, 'h'].join('');
-                sa.push(cons[asp]);
-                return;
-            }
-            sa.push(cons[sym]);
-            if ((next in cons) || !next) {
-                sa.push(c.virama);
-            }
-        } else if (sym in ligas) {
-            sa.push(ligas[sym]);
-        } else if (sym in signs) {
-            sa.push(signs[sym]);
-        }
-    });
-    log('SA', sa, sa.join(''));
-    // return 'सत्यानृत';
-    return sa.join('');
 }
 
 

@@ -53,6 +53,11 @@ describe('salita devanagari converter', function() {
             salita.slp2sa('apasalEH').should.equal('अपसलैः');
             salita.sa2slp('अपसलैः').should.equal('apasalEH');
         });
+        it('convert Sivo\'am', function() {
+            salita.slp2sa('Sivo\'am').should.equal('शिवोऽहम्');
+            // salita.sa2slp('शिवोऽहम्').should.equal('Sivo\'am');
+        });
+
         // it('convert ', function() {
         //     salita.slp2sa('').should.equal('');
         //     salita.sa2slp('').should.equal('');
@@ -111,7 +116,7 @@ describe('salita devanagari converter', function() {
         });
         it('convert apasalEH', function() {
             salita.iast2sa('apasalaiḥ').should.equal('अपसलैः');
-            // salita.sa2iast('अपसलैः').should.equal('apasalaiḥ');
+            salita.sa2iast('अपसलैः').should.equal('apasalaiḥ');
         });
 
         it('convert Sivo\'am', function() {
