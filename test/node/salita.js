@@ -4,7 +4,7 @@ try {
     var salita = require('../../salita');
 }
 
-describe('salita devanagari converter', function() {
+describe('devanagari converter', function() {
     describe('slp', function() {
         it('convert satyAnfta', function() {
             salita.slp2sa('satyAnfta').should.equal('सत्यानृत');
