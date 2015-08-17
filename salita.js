@@ -1,12 +1,6 @@
 //
 
-var each;
-try {
-    var each = require('each-component');
-} catch (err) {
-    var each = require('each');
-}
-
+// salita module
 var c = require('./lib/constants');
 
 module.exports = salita();
@@ -20,7 +14,7 @@ salita.prototype.slp2sa = function(str) {
     str = str.replace('-', ''); // FIXME: - ic-Cati
     var arr = str.split('');
     var sk = [];
-    each(arr, function(letr, idx) {
+    arr.forEach(function(letr, idx) {
         var prev = arr[idx-1];
         if (idx == 0 && letr in Vowels) sk[0] = Vowels[letr];
         if (prev in consonants) {
@@ -44,7 +38,7 @@ salita.prototype.sa2slp = function(str) {
     var  signs_ = invert(signs);
     var arr = str.split('');
     var slp = [];
-    each(arr, function(letr, idx) {
+    arr.forEach(function(letr, idx) {
         var prev = arr[idx-1];
         if (idx == 0 && letr in Vowels_) slp[0] = Vowels_[letr];
         if (prev in consonants_) {
@@ -271,7 +265,7 @@ salita.prototype.hk2sa = function(str) {
     var arr = str.split('');
     var prev;
     var iconsHK = invert(consonantsHK);
-    each(arr, function(letr, idx) {
+    arr.forEach(function(letr, idx) {
         prev = arr[idx-1];
         if (prev && (letr in iconsHK) && (prev in iconsHK)) {
             letr = Const.virama + letr;
