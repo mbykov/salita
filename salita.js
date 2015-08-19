@@ -1,6 +1,4 @@
-//
-
-// salita module
+// salita.js module
 var c = require('./lib/constants');
 
 module.exports = salita();
@@ -65,11 +63,9 @@ salita.prototype.sa2iast = function(str) {
     var  signs = invert(c.signsIAST);
     var arr = str.split('');
     var iast = [];
-    // log('==>', arr)
     arr.forEach(function(sym, idx) {
         var prev = arr[idx-1];
         var next = arr[idx+1];
-        // log('SYM', prev, sym, next);
         if (sym in cons) {
             iast.push(cons[sym]);
             if (next in cons) {
@@ -86,7 +82,6 @@ salita.prototype.sa2iast = function(str) {
             iast.push(vowels[sym]);
         }
     });
-    // log('IAST', iast, iast.join(''));
     return iast.join('');
 }
 
@@ -99,7 +94,6 @@ salita.prototype.iast2sa = function(str) {
     var arr = str.split('');
     var mixed = [];
     var sa = [];
-    // log('==>', arr)
     arr.forEach(function(sym, idx) {
         var prev = arr[idx-1];
         if (sym == 'h' && c.aspIAST.indexOf(prev) > -1) {
@@ -116,7 +110,6 @@ salita.prototype.iast2sa = function(str) {
             mixed.push(sym);
         }
     });
-    // log('==>', mixed);
 
     mixed.forEach(function(sym, idx) {
         var prev = mixed[idx-1];
@@ -124,7 +117,6 @@ salita.prototype.iast2sa = function(str) {
         if (sym in cons) {
             sa.push(cons[sym]);
             if ((next in cons) || !next) {
-                // log('VIR', sym, next);
                 sa.push(c.virama);
             }
         } else if (idx != 0 && sym in ligas) {
@@ -134,11 +126,9 @@ salita.prototype.iast2sa = function(str) {
         } else if (sym in signs) {
             sa.push(signs[sym]);
         } else {
-            // log('SYM', sym);
             sa.push(sym);
         }
     });
-    // log('SA', sa, sa.join(''));
     return sa.join('');
 }
 
