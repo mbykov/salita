@@ -1,4 +1,4 @@
-# salita - santskrit transliteration
+# salita - devanagari transliteration
 
 ## Installation
 
