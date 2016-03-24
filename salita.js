@@ -8,8 +8,8 @@ function salita() {
 }
 
 salita.prototype.slp2sa = function(str) {
-    str = str.replace('/', ''); // FIXME: - временно
-    str = str.replace('-', ''); // FIXME: - ic-Cati
+    str = str.replace('/', '');
+    str = str.replace('-', '');
     var arr = str.split('');
     var sk = [];
     arr.forEach(function(letr, idx) {
@@ -43,7 +43,7 @@ salita.prototype.sa2slp = function(str) {
             if (letr in vowels_) {
                 slp[idx-1] = consonants_[prev];
                 slp[idx] = vowels_[letr];
-            } else if (letr in consonants_ || letr in signs_) { // FIXME: why a difference?
+            } else if (letr in consonants_ || letr in signs_) {
                 slp[idx-1] = consonants_[prev] + 'a';
             } else if (letr == '्') {
                 slp[idx-1] = consonants_[prev];
@@ -101,7 +101,7 @@ salita.prototype.iast2sa = function(str) {
             var asp = [prev, 'h'].join('');
             mixed.push(c.virama);
             mixed.push(cons[asp]);
-        } else if (isIN(['i', 'u'], sym) && prev == 'a') {
+        } else if (inc(['i', 'u'], sym) && prev == 'a') {
             mixed.pop();
             var diph = ['a', sym].join('');
             var vow = (idx == 0) ? vowels[diph] : ligas[diph];
@@ -132,8 +132,9 @@ salita.prototype.iast2sa = function(str) {
     return sa.join('');
 }
 
-
 var signs = {
+    "'": "ऽ",
+    "^": "ँ",
     "/": "́",
     "H": "ः",
     "M": "ं",
@@ -258,12 +259,12 @@ salita.prototype.hk2sa = function(str) {
     arr.forEach(function(letr, idx) {
         prev = arr[idx-1];
         if (prev && (letr in iconsHK) && (prev in iconsHK)) {
-            letr = Const.virama + letr;
+            letr = c.virama + letr;
         }
         sk.push(letr);
     });
     str = sk.join('');
-    if (str.slice(-1) in iconsHK) str = [str, Const.virama].join('');
+    if (str.slice(-1) in iconsHK) str = [str, c.virama].join('');
     str = str.split('|').join('');
     return str;
 }
@@ -275,11 +276,6 @@ function clean(str) {
     str = str.split('|').join('');
     return str;
 }
-
-var Const = {
-    'virama': '्',
-}
-
 
 function invert(obj) {
     var new_obj = {};
@@ -293,6 +289,6 @@ function invert(obj) {
 
 function log() { console.log.apply(console, arguments) }
 
-function isIN(arr, item) {
+function inc(arr, item) {
     return (arr.indexOf(item) > -1) ? true : false;
 }

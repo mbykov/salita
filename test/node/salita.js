@@ -53,9 +53,9 @@ describe('devanagari converter', function() {
             salita.slp2sa('apasalEH').should.equal('अपसलैः');
             salita.sa2slp('अपसलैः').should.equal('apasalEH');
         });
-        it('convert Sivo\'am', function() {
-            salita.slp2sa('Sivo\'am').should.equal('शिवोऽहम्');
-            // salita.sa2slp('शिवोऽहम्').should.equal('Sivo\'am');
+        it('convert Sivo\'ham', function() {
+            salita.slp2sa('Sivo\'ham').should.equal('शिवोऽहम्');
+            salita.sa2slp('शिवोऽहम्').should.equal('Sivo\'ham');
         });
 
         // it('convert ', function() {
@@ -119,8 +119,8 @@ describe('devanagari converter', function() {
             salita.sa2iast('अपसलैः').should.equal('apasalaiḥ');
         });
 
-        it('convert Sivo\'am', function() {
-            salita.iast2sa('').should.equal('');
+        it('convert Sivo\'ham', function() {
+            salita.iast2sa('śivo\'ham').should.equal('शिवोऽहम्');
             salita.sa2iast('शिवोऽहम्').should.equal('śivo\'ham');
         });
 

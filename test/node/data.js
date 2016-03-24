@@ -21,6 +21,7 @@ var tests = {
     'शिवोऽहम्': {slp: 'Sivo\'ham', iast: 'śivo\'ham'},
     '': {slp: '', iast: ''},
     '': {slp: '', iast: ''},
+    '': {slp: '', iast: ''},
 }
 
 describe('salita transliteration', function() {

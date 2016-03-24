@@ -1,5 +1,6 @@
 TESTS = test/node/*.js
 #REPORTER = dot
+
 REPORTER = spec
 g = salita
 
