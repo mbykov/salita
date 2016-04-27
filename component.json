@@ -1,8 +1,8 @@
 {
   "name": "salita-component",
     "repo": "mbykov/salita",
-    "description": "devanagari transliteration for slp1",
-    "version": "1.0.2",
+    "description": "devanagari transliteration for SLP1 and IAST",
+    "version": "1.3.0",
     "keywords": [
         "sanskrit",
         "devanagari",
@@ -11,9 +11,6 @@
         "transliteration",
         "slp1"
     ],
-    "dependencies": {
-        "component/each": "*"
-    },
     "license": "GPL",
     "main": "salita.js",
     "scripts": [

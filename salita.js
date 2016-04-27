@@ -15,6 +15,7 @@ salita.prototype.slp2sa = function(str) {
     arr.forEach(function(letr, idx) {
         var prev = arr[idx-1];
         if (idx == 0 && letr in Vowels) sk[0] = Vowels[letr];
+        // if (prev == '-' && letr in Vowels) sk[idx] = Vowels[letr];
         if (prev in consonants) {
             if (letr in vowels) {
                 sk[idx-1] = consonants[prev];
@@ -272,7 +273,7 @@ salita.prototype.hk2sa = function(str) {
 function clean(str) {
     str = str.trim();
     str = str.split('/').join('');
-    str = str.split('-').join('');
+    // str = str.split('-').join('');
     str = str.split('|').join('');
     return str;
 }
