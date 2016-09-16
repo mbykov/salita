@@ -25,7 +25,8 @@ salita.prototype.slp2sa = function(str) {
             }
         }
         if (idx == (arr.length-1) && letr in consonants) sk[idx] = consonants[letr] + '्';
-        if (arr[idx] in signs) { sk[idx] = signs[letr] }
+        if (arr[idx] in signs) { sk[idx] = signs[letr]; }
+        if (arr[idx] in numbers) { sk[idx] = numbers[letr]; }
     });
     return sk.join('');
 }
@@ -35,6 +36,7 @@ salita.prototype.sa2slp = function(str) {
     var  vowels_ = invert(vowels);
     var  Vowels_ = invert(Vowels);
     var  signs_ = invert(signs);
+    var  numbers_ = invert(numbers);
     var arr = str.split('');
     var slp = [];
     arr.forEach(function(letr, idx) {
@@ -51,7 +53,8 @@ salita.prototype.sa2slp = function(str) {
             }
         }
         if (idx == (arr.length-1) && letr in consonants_) slp[idx] = consonants_[letr] + 'a';
-        if (arr[idx] in signs_) { slp[idx] = signs_[letr] }
+        if (arr[idx] in signs_) { slp[idx] = signs_[letr]; }
+        if (arr[idx] in numbers_) { slp[idx] = numbers_[letr]; }
     });
     return slp.join('');
 }
@@ -62,6 +65,7 @@ salita.prototype.sa2iast = function(str) {
     var  ligas = invert(c.ligaIAST);
     var  vowels = invert(c.vowelIAST);
     var  signs = invert(c.signsIAST);
+    var  numbers_ = invert(numbers);
     var arr = str.split('');
     var iast = [];
     arr.forEach(function(sym, idx) {
@@ -81,6 +85,8 @@ salita.prototype.sa2iast = function(str) {
             iast.push(signs[sym]);
         } else if (sym in vowels) {
             iast.push(vowels[sym]);
+        } else if (sym in numbers_) {
+            iast.push(numbers_[sym]);
         }
     });
     return iast.join('');
@@ -126,6 +132,8 @@ salita.prototype.iast2sa = function(str) {
             sa.push(vowels[sym]);
         } else if (sym in signs) {
             sa.push(signs[sym]);
+        } else if (sym in numbers) {
+            sa.push(numbers[sym]);
         } else {
             sa.push(sym);
         }
@@ -139,7 +147,8 @@ var signs = {
     "/": "́",
     "H": "ः",
     "M": "ं",
-    "-": "-"
+    "-": "-",
+    ".": "."
 }
 
 var Vowels = {
@@ -211,6 +220,21 @@ var consonants = {
     "h": "ह",
     "": "",
 };
+
+// ०१२३४५६७८९
+var numbers = {
+    "0": "०",
+    "1": "१",
+    "2": "२",
+    "3": "३",
+    "4": "४",
+    "5": "५",
+    "6": "६",
+    "7": "७",
+    "8": "८",
+    "9": "९"
+}
+
 
 
 salita.prototype.hk2sa = function(str) {

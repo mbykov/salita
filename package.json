@@ -1,6 +1,6 @@
 {
     "name": "salita-component",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "description": "devanagari transliteration for slp1 and iast",
     "main": "salita.js",
     "scripts": {

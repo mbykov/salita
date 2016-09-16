@@ -19,7 +19,7 @@ var tests = {
     'सङ्का': {slp: 'saNkA', iast: 'saṅkā'},
     'अपसलैः': {slp: 'apasalEH', iast: 'apasalaiḥ'},
     'शिवोऽहम्': {slp: 'Sivo\'ham', iast: 'śivo\'ham'},
-    '': {slp: '', iast: ''},
+    '०१२३४५६७८९': {slp: '0123456789', iast: '0123456789'},
     '': {slp: '', iast: ''},
     '': {slp: '', iast: ''},
 }

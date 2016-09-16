@@ -57,6 +57,10 @@ describe('devanagari converter', function() {
             salita.slp2sa('Sivo\'ham').should.equal('शिवोऽहम्');
             salita.sa2slp('शिवोऽहम्').should.equal('Sivo\'ham');
         });
+        it('convert 0123456789', function() {
+            salita.slp2sa('0123456789').should.equal('०१२३४५६७८९');
+            salita.sa2slp('०१२३४५६७८९').should.equal('0123456789');
+        });
 
         // it('convert ', function() {
         //     salita.slp2sa('').should.equal('');
@@ -122,6 +126,10 @@ describe('devanagari converter', function() {
         it('convert Sivo\'ham', function() {
             salita.iast2sa('śivo\'ham').should.equal('शिवोऽहम्');
             salita.sa2iast('शिवोऽहम्').should.equal('śivo\'ham');
+        });
+        it('convert 0123456789', function() {
+            salita.iast2sa('0123456789').should.equal('०१२३४५६७८९');
+            salita.sa2iast('०१२३४५६७८९').should.equal('0123456789');
         });
 
         // it('convert ', function() {

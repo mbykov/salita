@@ -53,6 +53,10 @@ describe('salit devanagari converter', function() {
             salita.slp2sa('apasalEH').should.equal('अपसलैः');
             salita.sa2slp('अपसलैः').should.equal('apasalEH');
         });
+        it('convert numbers', function() {
+            salita.slp2sa('0123456789').should.equal('०१२३४५६७८९');
+            salita.sa2slp('०१२३४५६७८९').should.equal('0123456789');
+        });
         // it('convert ', function() {
         //     salita.slp2sa('').should.equal('');
         //     salita.sa2slp('').should.equal('');

@@ -1,8 +1,9 @@
 TESTS = test/node/*.js
+# TESTS = test/tests.js
 #REPORTER = dot
 
 REPORTER = spec
-g = salita
+g = deva
 
 build: components salita.js #test
 	@component build --dev
