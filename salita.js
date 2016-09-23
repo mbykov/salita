@@ -8,6 +8,7 @@ function salita() {
 }
 
 salita.prototype.slp2sa = function(str) {
+    if (!str) return '';
     str = str.replace('/', '');
     str = str.replace('-', '');
     var arr = str.split('');
@@ -15,7 +16,6 @@ salita.prototype.slp2sa = function(str) {
     arr.forEach(function(letr, idx) {
         var prev = arr[idx-1];
         if (idx == 0 && letr in Vowels) sk[0] = Vowels[letr];
-        // if (prev == '-' && letr in Vowels) sk[idx] = Vowels[letr];
         if (prev in consonants) {
             if (letr in vowels) {
                 sk[idx-1] = consonants[prev];
@@ -32,6 +32,7 @@ salita.prototype.slp2sa = function(str) {
 }
 
 salita.prototype.sa2slp = function(str) {
+    if (!str) return '';
     var consonants_ = invert(consonants);
     var  vowels_ = invert(vowels);
     var  Vowels_ = invert(Vowels);
@@ -60,6 +61,7 @@ salita.prototype.sa2slp = function(str) {
 }
 
 salita.prototype.sa2iast = function(str) {
+    if (!str) return '';
     str = clean(str);
     var cons = invert(c.consIAST);
     var  ligas = invert(c.ligaIAST);
@@ -93,6 +95,7 @@ salita.prototype.sa2iast = function(str) {
 }
 
 salita.prototype.iast2sa = function(str) {
+    if (!str) return '';
     str = clean(str);
     var cons = c.consIAST;
     var  ligas = c.ligaIAST;
@@ -297,7 +300,6 @@ salita.prototype.hk2sa = function(str) {
 function clean(str) {
     str = str.trim();
     str = str.split('/').join('');
-    // str = str.split('-').join('');
     str = str.split('|').join('');
     return str;
 }
