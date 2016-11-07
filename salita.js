@@ -146,7 +146,7 @@ salita.prototype.iast2sa = function(str) {
 
 var signs = {
     "'": "ऽ",
-    "^": "ँ",
+    "!": "ँ",
     "/": "́",
     "H": "ः",
     "M": "ं",
